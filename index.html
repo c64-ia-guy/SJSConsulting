@@ -3,99 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SJS Consulting | Infrastructure Consulting</title>
+  <title>SJS Consulting | Practical Technology Advice</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #07111f;
-      color: #ffffff;
+      color: #0f172a;
+      background: #ffffff;
       line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     header {
-      background: rgba(3, 10, 20, 0.95);
-      padding: 24px 8%;
+      background: #ffffff;
+      height: 92px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      justify-content: space-between;
+      padding: 0 7%;
+      box-shadow: 0 2px 18px rgba(15, 23, 42, 0.08);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
     .logo {
-      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       font-weight: 800;
-      letter-spacing: 2px;
+      font-size: 1.9rem;
+      letter-spacing: 3px;
+      color: #0b1b35;
     }
 
-    .logo span {
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+
+    .logo small {
       display: block;
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      font-weight: 400;
-      color: #9fb7d5;
+      font-size: 0.78rem;
+      letter-spacing: 6px;
+      font-weight: 500;
+      margin-top: -8px;
+      color: #334155;
+    }
+
+    nav {
+      display: flex;
+      gap: 38px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     nav a {
-      margin-left: 28px;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #dce8f7;
+      color: #0f172a;
+      padding: 34px 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
     }
 
     .hero {
-      min-height: 78vh;
-      padding: 110px 8%;
-      background:
-        linear-gradient(90deg, rgba(3,10,20,0.98), rgba(3,10,20,0.85), rgba(3,10,20,0.45)),
-        radial-gradient(circle at right, #0d4f91, transparent 35%),
-        #07111f;
+      min-height: 570px;
       display: flex;
       align-items: center;
+      padding: 90px 7%;
+      color: #ffffff;
+      background:
+        linear-gradient(90deg, rgba(2, 12, 31, 0.96) 0%, rgba(2, 12, 31, 0.88) 42%, rgba(2, 12, 31, 0.45) 100%),
+        radial-gradient(circle at 78% 40%, rgba(96, 165, 250, 0.35), transparent 28%),
+        linear-gradient(135deg, #06152e, #0f2c55);
     }
 
     .hero-content {
-      max-width: 720px;
+      max-width: 620px;
     }
 
-    .eyebrow {
-      color: #3198ff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      line-height: 1.05;
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      line-height: 1.15;
       margin-bottom: 24px;
+      letter-spacing: -1px;
     }
 
-    h1 span {
-      color: #3198ff;
+    .hero h1 span {
+      color: #3b82f6;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #d9e6f5;
-      max-width: 620px;
+      font-size: 1.17rem;
+      color: #e2e8f0;
       margin-bottom: 36px;
+      max-width: 560px;
     }
 
     .buttons {
@@ -105,160 +133,283 @@
     }
 
     .btn {
-      padding: 14px 24px;
+      display: inline-block;
+      padding: 15px 28px;
       border-radius: 6px;
-      font-weight: 700;
+      font-weight: 800;
+      font-size: 0.86rem;
       text-transform: uppercase;
-      font-size: 0.85rem;
       letter-spacing: 1px;
     }
 
     .btn-primary {
-      background: #2388f2;
-      color: white;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
     }
 
-    .btn-secondary {
-      border: 1px solid #3198ff;
+    .btn-outline {
+      border: 1px solid #60a5fa;
       color: #ffffff;
+      background: rgba(15, 23, 42, 0.35);
     }
 
     section {
-      padding: 80px 8%;
+      padding: 76px 7%;
     }
 
     .light {
-      background: #f4f8fc;
-      color: #101828;
+      background: #f8fafc;
     }
 
-    .section-title {
+    .section-heading {
       text-align: center;
-      margin-bottom: 45px;
+      max-width: 900px;
+      margin: 0 auto 44px;
     }
 
-    .section-title .eyebrow {
-      margin-bottom: 8px;
+    .eyebrow {
+      color: #2563eb;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      letter-spacing: 1.8px;
+      font-weight: 900;
+      margin-bottom: 10px;
     }
 
-    .section-title h2 {
-      font-size: 2.4rem;
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .section-heading p {
+      color: #334155;
+      font-size: 1.08rem;
     }
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
     }
 
     .card {
-      background: white;
-      color: #101828;
-      padding: 34px 26px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: #ffffff;
+      min-height: 290px;
+      padding: 34px 24px;
+      border-radius: 8px;
       text-align: center;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+      border: 1px solid #e5e7eb;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border: 3px solid #2563eb;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: grid;
+      place-items: center;
+      color: #2563eb;
+      font-size: 1.5rem;
+      font-weight: 900;
     }
 
     .card h3 {
+      font-size: 1.12rem;
+      line-height: 1.25;
       margin-bottom: 14px;
-      color: #07111f;
+      color: #0f172a;
     }
 
     .card p {
-      color: #475467;
-      font-size: 0.95rem;
+      color: #334155;
+      font-size: 0.94rem;
     }
 
     .about {
-      background: #07111f;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      background: #ffffff;
+    }
+
+    .about-text {
+      padding: 76px 7vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-text h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 22px;
+      color: #0f172a;
+    }
+
+    .about-text p {
+      color: #334155;
+      margin-bottom: 18px;
+      max-width: 560px;
+    }
+
+    .about-image {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.05)),
+        linear-gradient(135deg, #dbeafe, #eff6ff 35%, #bfdbfe);
+      display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 40px;
     }
 
-    .about h2 {
-      font-size: 2.3rem;
-      margin-bottom: 20px;
+    .image-card {
+      width: 100%;
+      max-width: 520px;
+      height: 300px;
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(37, 99, 235, 0.4)),
+        radial-gradient(circle at 30% 25%, #ffffff, transparent 6%),
+        linear-gradient(135deg, #0f172a, #1e3a8a);
+      box-shadow: 0 22px 44px rgba(15, 23, 42, 0.22);
+      position: relative;
+      overflow: hidden;
     }
 
-    .about p {
-      color: #d9e6f5;
-      margin-bottom: 16px;
+    .image-card::before {
+      content: "";
+      position: absolute;
+      inset: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.22);
     }
 
-    .panel {
-      background: linear-gradient(145deg, #0c1c32, #05101e);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 36px;
+    .image-card::after {
+      content: "Clearer decisions. Less risk.";
+      position: absolute;
+      left: 40px;
+      bottom: 36px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 800;
+      max-width: 330px;
     }
 
-    .panel ul {
-      list-style: none;
+    .cta-strip {
+      background: linear-gradient(90deg, #082653, #0f4fa8);
+      color: white;
+      padding: 38px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    .panel li {
-      margin-bottom: 14px;
-      color: #d9e6f5;
+    .cta-strip h2 {
+      font-size: 1.8rem;
+      margin-bottom: 4px;
     }
 
-    .panel li::before {
-      content: "✓";
-      color: #3198ff;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .cta {
-      text-align: center;
-      background: linear-gradient(135deg, #063a70, #07111f);
-    }
-
-    .cta h2 {
-      font-size: 2.4rem;
-      margin-bottom: 14px;
-    }
-
-    .cta p {
-      color: #d9e6f5;
-      margin-bottom: 30px;
+    .cta-strip p {
+      color: #dbeafe;
     }
 
     footer {
-      background: #030a14;
-      padding: 40px 8%;
-      color: #9fb7d5;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
+      background: #06152e;
+      color: #cbd5e1;
+      padding: 48px 7% 28px;
     }
 
-    footer strong {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+      gap: 36px;
+      padding-bottom: 34px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    footer h4 {
       color: white;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    footer p, footer li {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      list-style: none;
+      margin-bottom: 6px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 1050px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 760px) {
       header {
+        height: auto;
+        padding: 20px 6%;
         flex-direction: column;
-        gap: 16px;
         align-items: flex-start;
+        gap: 16px;
+      }
+
+      nav {
+        gap: 18px;
+        flex-wrap: wrap;
       }
 
       nav a {
-        margin: 0 18px 0 0;
-        display: inline-block;
-        margin-bottom: 8px;
+        padding: 0;
       }
 
       .hero {
-        padding-top: 80px;
+        padding: 70px 6%;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
       }
 
       .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-text {
+        padding: 64px 6%;
+      }
+
+      .cta-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -267,117 +418,196 @@
 
 <body>
 
-  <header>
-    <div class="logo">
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">S</div>
+    <div>
       SJS
-      <span>CONSULTING</span>
+      <small>CONSULTING</small>
     </div>
+  </a>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">Infrastructure Consulting</div>
-        <h1>Reliable Infrastructure.<br>Recoverable Data.<br><span>Real Peace of Mind.</span></h1>
-        <p>
-          Practical IT consulting for VMware environments, backups, disaster recovery,
-          infrastructure assessments, and documentation that makes sense.
-        </p>
+<main>
 
-        <div class="buttons">
-          <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Get in Touch</a>
-          <a class="btn btn-secondary" href="#services">View Services</a>
-        </div>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Practical Technology Advice.<br>
+        Clearer Decisions. <span>Less Risk.</span>
+      </h1>
 
-    <section id="services" class="light">
-      <div class="section-title">
-        <div class="eyebrow">Services</div>
-        <h2>How I Can Help</h2>
-      </div>
-
-      <div class="services">
-        <div class="card">
-          <h3>VMware Consulting</h3>
-          <p>Health checks, troubleshooting, lifecycle planning, and practical guidance for virtual environments.</p>
-        </div>
-
-        <div class="card">
-          <h3>Backup & Recovery</h3>
-          <p>Review backup strategies, identify gaps, and help ensure critical data is protected and recoverable.</p>
-        </div>
-
-        <div class="card">
-          <h3>Disaster Recovery</h3>
-          <p>Simple, realistic disaster recovery planning for organizations that need to be prepared.</p>
-        </div>
-
-        <div class="card">
-          <h3>Infrastructure Assessments</h3>
-          <p>Clear reviews of servers, storage, virtualization, and operational risks with actionable recommendations.</p>
-        </div>
-
-        <div class="card">
-          <h3>Documentation</h3>
-          <p>System inventories, recovery procedures, diagrams, and documentation that people can actually use.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <div>
-        <div class="eyebrow">About SJS Consulting</div>
-        <h2>Solutions Built on Experience</h2>
-        <p>
-          SJS Consulting is operated by Steve Joseph, an infrastructure professional
-          with decades of hands-on experience supporting reliable IT environments.
-        </p>
-        <p>
-          The focus is practical: understand the environment, identify risks,
-          improve recoverability, and provide clear recommendations without unnecessary complexity.
-        </p>
-      </div>
-
-      <div class="panel">
-        <ul>
-          <li>VMware and server infrastructure</li>
-          <li>Backup and recovery planning</li>
-          <li>Disaster recovery readiness</li>
-          <li>Infrastructure documentation</li>
-          <li>Small business and organizational IT guidance</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="eyebrow">Ready to Get Started?</div>
-      <h2>Let’s Talk About Your Environment</h2>
       <p>
-        For occasional consulting, infrastructure reviews, or a second opinion.
+        I help small businesses understand their technology, identify risks,
+        and make informed decisions that support their goals.
       </p>
-      <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Contact SJS Consulting</a>
-    </section>
-  </main>
 
-  <footer>
+      <div class="buttons">
+        <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Let’s Talk</a>
+        <a class="btn btn-outline" href="#services">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="light">
+    <div class="section-heading">
+      <div class="eyebrow">How I Can Help</div>
+      <h2>Services Built Around Your Business</h2>
+      <p>
+        Focused on understanding your environment, reducing risk,
+        and providing clear, practical recommendations.
+      </p>
+    </div>
+
+    <div class="services">
+      <div class="card">
+        <div class="icon">⌕</div>
+        <h3>Technology Reviews</h3>
+        <p>
+          A comprehensive review of your systems, backups, processes, and risks.
+          Understand where you stand and what matters most.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">✓</div>
+        <h3>Business Continuity</h3>
+        <p>
+          Evaluate backups, recovery plans, and operational readiness so you can
+          be prepared when something goes wrong.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">□</div>
+        <h3>Technology Documentation</h3>
+        <p>
+          Clear, accurate documentation, inventories, and procedures that your
+          team can actually use.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">?</div>
+        <h3>Independent Technology Advice</h3>
+        <p>
+          A second opinion before major purchases, changes, or projects.
+          Get objective advice you can trust.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚙</div>
+        <h3>Technology Problem Solving</h3>
+        <p>
+          Stuck on a problem? I bring experience, resourcefulness, and a practical
+          approach to finding solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-text">
+      <div class="eyebrow">About SJS Consulting</div>
+      <h2>Experience That Looks at the Bigger Picture</h2>
+
+      <p>
+        With decades of hands-on experience in IT infrastructure, I help businesses
+        simplify complexity, manage risk, and make confident technology decisions.
+      </p>
+
+      <p>
+        I’m not tied to vendors or products — my focus is what’s right for your
+        business, your budget, and your goals.
+      </p>
+
+      <a class="btn btn-primary" href="#contact">Learn More About Me</a>
+    </div>
+
+    <div class="about-image">
+      <div class="image-card"></div>
+    </div>
+  </section>
+
+  <section id="approach" class="light">
+    <div class="section-heading">
+      <div class="eyebrow">My Approach</div>
+      <h2>Understand First. Recommend Second.</h2>
+      <p>
+        Good technology advice starts with asking the right questions.
+        I focus on understanding the problem, the people, the budget,
+        and the business impact before recommending a path forward.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="cta-strip">
     <div>
-      <strong>SJS Consulting</strong><br>
-      Practical infrastructure consulting.
+      <h2>Ready to Talk About Your Technology?</h2>
+      <p>Let’s discuss your challenges and see how I can help.</p>
+    </div>
+
+    <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Get in Touch</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="color:white; margin-bottom: 16px;">
+        <div class="logo-mark">S</div>
+        <div>
+          SJS
+          <small style="color:#cbd5e1;">CONSULTING</small>
+        </div>
+      </div>
+      <p>
+        Practical technology consulting for small businesses.
+        Clear advice. Better decisions. Less risk.
+      </p>
     </div>
 
     <div>
-      <strong>Contact</strong><br>
-      steve@sjsconsulting.ca<br>
-      Ontario, Canada
+      <h4>Services</h4>
+      <ul>
+        <li>Technology Reviews</li>
+        <li>Business Continuity</li>
+        <li>Technology Documentation</li>
+        <li>Independent Advice</li>
+        <li>Problem Solving</li>
+      </ul>
     </div>
-  </footer>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>steve@sjsconsulting.ca</p>
+      <p>Ontario, Canada</p>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 SJS Consulting. All rights reserved.
+  </div>
+</footer>
 
 </body>
 </html>
