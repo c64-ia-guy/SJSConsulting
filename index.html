@@ -105,7 +105,7 @@
     }
 
     .hero-content {
-      max-width: 620px;
+      max-width: 650px;
     }
 
     .hero h1 {
@@ -123,7 +123,7 @@
       font-size: 1.17rem;
       color: #e2e8f0;
       margin-bottom: 36px;
-      max-width: 560px;
+      max-width: 590px;
     }
 
     .buttons {
@@ -140,6 +140,7 @@
       font-size: 0.86rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -349,6 +350,14 @@
       margin-bottom: 6px;
     }
 
+    footer a {
+      color: #cbd5e1;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
     .copyright {
       text-align: center;
       padding-top: 20px;
@@ -441,17 +450,18 @@
   <section class="hero">
     <div class="hero-content">
       <h1>
-        Practical Technology Advice.<br>
-        Clearer Decisions. <span>Less Risk.</span>
+        Helping Small Businesses<br>
+        Make Better <span>Technology Decisions.</span>
       </h1>
 
       <p>
-        I help small businesses understand their technology, identify risks,
-        and make informed decisions that support their goals.
+        Independent technology guidance for small businesses.
+        Understand your risks, evaluate your options, and make informed
+        decisions with confidence.
       </p>
 
       <div class="buttons">
-        <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Let’s Talk</a>
+        <a class="btn btn-primary" href="#" onclick="contactSJS(); return false;">Let's Talk</a>
         <a class="btn btn-outline" href="#services">View Services</a>
       </div>
     </div>
@@ -472,7 +482,7 @@
         <div class="icon">⌕</div>
         <h3>Technology Reviews</h3>
         <p>
-          A comprehensive review of your systems, backups, processes, and risks.
+          A practical review of your systems, backups, processes, and risks.
           Understand where you stand and what matters most.
         </p>
       </div>
@@ -482,7 +492,7 @@
         <h3>Business Continuity</h3>
         <p>
           Evaluate backups, recovery plans, and operational readiness so you can
-          be prepared when something goes wrong.
+          be better prepared when something goes wrong.
         </p>
       </div>
 
@@ -490,8 +500,8 @@
         <div class="icon">□</div>
         <h3>Technology Documentation</h3>
         <p>
-          Clear, accurate documentation, inventories, and procedures that your
-          team can actually use.
+          Clear documentation, inventories, checklists, and procedures that your
+          business can actually use.
         </p>
       </div>
 
@@ -500,7 +510,7 @@
         <h3>Independent Technology Advice</h3>
         <p>
           A second opinion before major purchases, changes, or projects.
-          Get objective advice you can trust.
+          Get objective advice before you commit.
         </p>
       </div>
 
@@ -509,7 +519,7 @@
         <h3>Technology Problem Solving</h3>
         <p>
           Stuck on a problem? I bring experience, resourcefulness, and a practical
-          approach to finding solutions.
+          hands-on approach to finding solutions.
         </p>
       </div>
     </div>
@@ -521,16 +531,17 @@
       <h2>Experience That Looks at the Bigger Picture</h2>
 
       <p>
-        With decades of hands-on experience in IT infrastructure, I help businesses
-        simplify complexity, manage risk, and make confident technology decisions.
+        SJS Consulting helps small businesses make sense of their technology,
+        identify practical risks, and decide what to do next.
       </p>
 
       <p>
-        I’m not tied to vendors or products — my focus is what’s right for your
-        business, your budget, and your goals.
+        My focus is not selling hardware, software, or complex solutions.
+        It is understanding the problem, asking the right questions, and helping
+        you make decisions that fit your business, budget, and goals.
       </p>
 
-      <a class="btn btn-primary" href="#contact">Learn More About Me</a>
+      <a class="btn btn-primary" href="#" onclick="contactSJS(); return false;">Contact SJS Consulting</a>
     </div>
 
     <div class="about-image">
@@ -556,7 +567,7 @@
       <p>Let’s discuss your challenges and see how I can help.</p>
     </div>
 
-    <a class="btn btn-primary" href="mailto:steve@sjsconsulting.ca">Get in Touch</a>
+    <a class="btn btn-primary" href="#" onclick="contactSJS(); return false;">Get in Touch</a>
   </section>
 
 </main>
@@ -599,7 +610,11 @@
 
     <div>
       <h4>Contact</h4>
-      <p>steve@sjsconsulting.ca</p>
+      <p>
+        <a href="#" onclick="contactSJS(); return false;">
+          Contact SJS Consulting
+        </a>
+      </p>
       <p>Ontario, Canada</p>
     </div>
   </div>
@@ -608,6 +623,17 @@
     © 2026 SJS Consulting. All rights reserved.
   </div>
 </footer>
+
+<script>
+function contactSJS() {
+  const user = "contact";
+  const domain = "sjsconsulting";
+  const tld = "ca";
+
+  window.location.href =
+    "mailto:" + user + "@" + domain + "." + tld;
+}
+</script>
 
 </body>
 </html>
